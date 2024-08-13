@@ -1,707 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" 
-          content="width=device-width, initial-scale=1.0">
-    <title>HTML Project</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="import" href="tools-schedule.html">
+    <link rel="icon" href="img/icon.png">
+
+    <title>finalsync</title>
+    <style>
+        
+
+        .tile1{
+            background: rgb(28,28,28);
+            background: linear-gradient(105deg, rgba(28,28,28,1) 0%, rgba(156,36,250,1) 100%);
+            position: absolute;
+            margin-top: 30px;
+            animation-name: example;
+            animation-duration: 1s;
+            z-index: 3;
+        }
+
+    
+        @keyframes example {
+        from {width: 0px;}
+        to {width: 40vw;}
+        }
+        .tile2::before{
+            background-color: purple;
+            position: absolute;
+            margin-top: 0px;
+            z-index: 2;
+            
+        }
+        .tile3::before {
+            background-color: purple;
+            position: absolute;
+            margin-top: 70px;
+            z-index: 1;
+        }
+
+        .tile2 {
+            background: rgb(28,28,28);
+            background: linear-gradient(105deg, rgba(28,28,28,1) 0%, rgba(11,182,255,1) 100%);          
+            animation-name: example1;
+            animation-duration: 1s;
+        }
+
+        .tile3 {
+            background: rgb(28,28,28);
+            background: linear-gradient(105deg, rgba(28,28,28,1) 0%, rgba(36,250,217,1) 100%);
+            animation-name: example2;
+            animation-duration: 1s;
+        }
+
+
+        @keyframes example1 {
+        from {width: 0px;}
+        to {width: 30vw;}
+        }
+
+        @keyframes example2 {
+        from {width: 0px;}
+        to {width: 25vw;}
+        }
+
+
+        </style>
+        <style>
+        body{
+    background:#eee;
+}
+.hori-timeline .events {
+    border-top: 3px solid #e9ecef;
+}
+.hori-timeline .events .event-list {
+    display: block;
+    position: relative;
+    text-align: center;
+    padding-top: 70px;
+    margin-right: 0;
+}
+.hori-timeline .events .event-list::before {
+    content: "";
+    position: absolute; 
+    height: 36px;
+    border-right: 2px dashed #dee2e66c;
+    top: 0; 
+}
+.hori-timeline .events .event-list .event-date {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    right: 0;
+    width: 75px;
+    margin: 0 auto;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+.hori-timeline .events .event-list .event-date:hover {
+    padding: 4px 6px;
+}
+
+
+@media (min-width: 1140px) {
+    .hori-timeline .events .event-list {
+        display: inline-block;
+        width: 24%;
+        padding-top: 45px;
+    }
+    .hori-timeline .events .event-list .event-date {
+        top: -12px;
+    }
+}
+.bg-soft-primary {
+    background-color: rgba(64,144,203,.3)!important;
+}
+.bg-soft-success {
+    background-color: rgba(71,189,154,.3)!important;
+}
+.bg-soft-danger {
+    background-color: rgba(231,76,94,.3)!important;
+}
+.bg-soft-warning {
+    background-color: rgba(249,213,112,.3)!important;
+}
+.card {
+    border: none;
+    margin-bottom: 24px;
+    -webkit-box-shadow: 0 0 13px 0 rgba(236,236,241,.44);
+    box-shadow: 0 0 13px 0 rgba(236,236,241,.44);
+}
+
+.template-image-placeholder:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (min-width: 768px) {
+    .news-width {
+        width: 40vw;
+    }
+}
+
+    </style>
+
+
 </head>
-
 <body>
-    <!--Header(start)-->
-    <table id="header" border="0" 
-           width="100%" cellpadding="0" 
-           cellspacing="0" bgcolor="#4CAF50">
-        <tr>
-            <td>
-                <table border="0" cellpadding="15" 
-                       cellspacing="0" width="90%" 
-                       align="center">
-                    <tr>
-                        <td>
-                            &nbsp;
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+        <img class="m-1" src="img/icon.png" alt="navbar icon" style="width: 32px; border-radius: 8px;">
+          <a class="navbar-brand text-white" href="#">finalsync</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Games
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Arcus</a></li>
+                  <li><a class="dropdown-item" href="#">...</a></li>
+                  <li><a class="dropdown-item" href="#">...</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="tools-schedule.html" target="_parent">Tools</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Link</a>
+              </li>
+              
+              
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+      
 
-                        </td>
+      <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start ms-auto" style="position: relative;">
+        <div class="tile1 d-none d-xl-block" style=" width: 40%;height: 50px; border-radius:0px 5px 5px  0px;"></div>
+        <div class="tile2 shadow d-none d-xl-block" style="width: 30%; height: 50px; border-radius:0px 5px 5px  0px;"></div>
+        <div class="tile3 d-none d-xl-block" style="width: 25%; height: 80px; border-radius:0px 5px 5px  0px;"></div>
+        <div class="container mt-4">
+            <div class="d-sm-flex align--items-center justify-content-between">
+                <div>
+                    <h1>The new <span style="color: rgba(156,36,250,1);">Mobile Game</span> </h1>
+                    <p class="lead my-4 ">
+                        Our task is the creation of the world of <span style="color: rgba(36,250,217,1); font-weight: 700;">Arcus: realm of forlux</span> <br> the brave archer on the journey to the shadow world.
+                    </p>
+                    <button class="btn btn-light btn-lg " style="font-weight: 500;"  data-bs-toggle="modal" data-bs-target="#enroll">View Gameplay</button>
+                </div>
+                <img class="img-fluid w-25 d-none d-sm-block" src="img/undraw_mobile_application_re_13u3.svg" alt="">
+            </div>
+        </div>
+    </section>
 
-                        <td>
-                            <font face="Comic sans MS" size="6">
-                                <b>GeeksForGeeks</b>
-                            </font>
-                        </td>
-
-                        <td width="15%">
-                            &nbsp;
-                        </td>
-
-                        <td>
-                            <a href="#home" 
-                               style="text-decoration:none">
-                                <font face="Verdana" 
-                                      size="5" color=black>
-                                    Home
-                                </font>
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td>
-                            <a href="#about" 
-                               style="text-decoration:none">
-                                <font face="Verdana" 
-                                      size="5" color=black>
-                                    About
-                                </font>
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td>
-                            <a href="#projects" 
-                               style="text-decoration:none">
-                                <font face="Verdana" 
-                                      size="5" color=black>
-                                    Projects
-                                </font>
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td>
-                            <a href="#achievements" 
-                               style="text-decoration:none">
-                                <font face="Verdana" 
-                                      size="5" color=black>
-                                    Achievements
-                                </font>
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td>
-                            <a href="#contact" 
-                               style="text-decoration:none">
-                                <font face="Verdana" 
-                                      size="5" color=black>
-                                    Contact
-                                </font>
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <!--Header(end)-->
-
-    <!--Home(start)-->
-    <table id="home" border="1" width="100%" 
-        cellpadding="20" cellspacing="0" bgcolor="black">
-        <tr>
-            <td>
-                <table border="0" cellpadding="15" 
-                    cellspacing="0" width="90%" align="center">
-                    <tr>
-                        <td align="center" valign="middle">
-                            <h3>
-                                <font face="Times New Roman" 
-                                    size="6" color="#ffffff">
-                                    Hi Geeks!
-                                </font>
-                            </h3>
-
-                            <h2>
-                                <font face="Verdana" size="6"
-                                    color="#4CAF50">
-                                    <!-- Freelance Programmer -->
-                                </font>
-                            </h2>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <!--Home(end)-->
+    <div class="container-fluid w-100 mt-1" style=" height: 10px;background-color: rgb(26, 26, 26);"></div>
 
 
-    <!--About(start)-->
-    <table id="about" border="0" width="100%" 
-        cellpadding="0" cellspacing="0" bgcolor="black">
-        <tr>
-            <td>
-                <table border="0" cellpadding="15" 
-                    cellspacing="0" width="80%" align="center">
-                    <tr>
-                        <td height="180" align="center" 
-                            valign="middle" colspan="2">
-                            <font face="Verdana" size="7" 
-                                color="#4CAF50">
-                                About Me
-                            </font>
-                            <hr color="#4CAF50" width="90">
-                        </td>
-                    </tr>
+    
 
-                    <tr>
-                        <td width="40%">
-                            <img src="img.png">
-                        </td>
-
-                        <td width="60%">
-                            <font face="Verdana" size="4" 
-                                color="white">
-                                Thanks for your interest, here 
-                                is a quick story of me and this 
-                                website.
-                                <hr color="black">
-                                Sandeep Jain An IIT Roorkee alumnus 
-                                and founder of GeeksforGeeks. He 
-                                loves to solve programming problems 
-                                in most efficient ways. Apart from 
-                                GeeksforGeeks, he has worked with 
-                                DE Shaw and Co. as a software 
-                                developer and JIIT Noida as an 
-                                assistant professor.
-                                <hr color="black">
-
-                                I do my work mainly in C-Language, 
-                                C++ and JAVA. C++ and Data Structure
-                                and Algorithm are my stronger section.
-                                Besides these I know Web Development,
-                                LINUX and database as well.
-                                <hr color="black">
-
-                                This website is basically one of my 
-                                Web Development project which is 
-                                built using HTML only.
-                                Here one can also find ideas for 
-                                projects in different languages.
-
-                                Thanks again for reading this, 
-                                because of people like you, it 
-                                exists and prospers!
-                                <hr color="black">
-                                Cheers,
-                                <br>
-                                <b>GeeksForGeeks.</b>
-                            </font>
-                        </td>
-                    </tr>
-                </table>
-                <hr color="black">
-                <hr color="black">
-                <hr color="black">
-            </td>
-        </tr>
-    </table>
-    <!--About(end)-->
-
-
-    <!--Projects(start)-->
-    <table id="projects" border="0" width="100%" 
-        cellpadding="0" cellspacing="0" bgcolor="#c2c0c3">
-        <tr>
-            <td>
-                <table border="0" cellpadding="15" 
-                    cellspacing="0" width="80%" align="center">
-                    <tr>
-                        <td height="180" align="center" 
-                            valign="middle" colspan="2">
-                            <font face="Verdana" size="7" 
-                                color="black">
-                                Projects
-                            </font>
-                            <hr color="black" width="90">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td height="10">
-                            <font face="Times New Roman" 
-                                size="5" color="black">
-                                <ul>
-                                    <li>
-                                        BMI Calculator
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp; ➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Calculator
-                                        <a href="#" 
-                                           style="text-decoration:none"
-                                            color="#c2c0c3">
-                                            &nbsp; ➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Calendar
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp; ➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        ChatBot
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp; ➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Contact Saver
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp; ➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Daily Quiz
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp; ➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Emplyoyee Record System
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp; ➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Guess the Number-Game
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp; ➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Random Password Generator
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp;➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Stone Paper Scissor
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp;➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Tic Tac Toe
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp;➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Tic Tac Toe(GUI)
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp;➲
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        ToDo App
-                                        <a href="#" 
-                                           style="text-decoration:none">
-                                            &nbsp;➲ </a>
-                                    </li>
-
-                                    <li>
-                                        <hr color="#c2c0c3">
-                                        Travel Management System
-                                        <a href="#" style=
-                                            "text-decoration:none">&nbsp; ➲
-                                        </a>
-                                    </li>
-                                </ul>
-                                <hr color="#c2c0c3">
-                                <hr color="#c2c0c3">
-                                <hr color="#c2c0c3">
-                                <hr color="#c2c0c3">
-                            </font>
-                        </td>
-
-                        <td width="45%">
-                            <img src="img.png" 
-                                 alt="Project" width="75%">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <!--Projects(end)-->
-
-    <!--Achievement(start)-->
-    <table id="achievements" border="0" width="100%" 
-        cellpadding="0" cellspacing="0" bgcolor="black">
-        <tr>
-            <td>
-                <table border="0" cellpadding="15" 
-                    cellspacing="0" width="80%" align="center">
-                    <tr>
-                        <td height="180" align="center" valign="middle">
-                            <font face="Verdana" size="7" color="#4CAF50">
-                                Achievements
-                                <hr color="#4CAF50" width="100">
-                            </font>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <font face="Verdana" size="4" color="white">
-                                <ul>
-                                    <li>
-                                        <b>Intern at GeeksforGeeks.</b>
-                                        <ul>
-                                            <li>
-                                                December,2020 - Present.
+    <section class="bg-light text-dark p-5 shadow-sm" style="border-left: solid 5px rgb(39, 39, 39); border-right: solid 5px rgb(39, 39, 39); border-radius: 0 0 5px 5px;">
+        <div class="container" >
+            <div class="d-md-flex justify-content-between align-items-center">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-inline-flex border px-2 pt-1 shadow-sm bg-light mb-5 text-center" style="border-radius: 5px;"><h5 class="card-title">Development Progress</h5></div>
+                                    
+                    
+                                    <div class="hori-timeline" dir="ltr">
+                                        <ul class="list-inline events">
+                                            <li class="list-inline-item event-list" >
+                                                <div class="px-4">
+                                                    <div class="event-date bg-soft-primary text-primary">31 Dez 2022</div>
+                                                    <h5 class="font-size-16">3D Model Menu</h5>
+                                                    <p class="text-muted">Erstelle eine Welt als Level sowie zugleich als Levelauswahl,
+                                                        für den Charakter Arcus.
+                                                    </p>
+                                                    <div>
+                                                        <a href="#" class="btn btn-dark btn-sm">Read more</a>
+                                                    </div>
+                                                </div>
                                             </li>
-                                            <li>
-                                                Write technical articles 
-                                                on programming related topics.
+                                            <li class="list-inline-item event-list">
+                                                <div class="px-4">
+                                                    <div class="event-date bg-soft-success text-success">28 Feb 2023</div>
+                                                    <h5 class="font-size-16">3Match Game</h5>
+                                                    <p class="text-muted">3Match Mechanik des Spiels für das Erspielen von Waffen/Fähigkeiten.</p>
+                                                    <div>
+                                                        <a href="#" class="btn btn-dark btn-sm">Read more</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-inline-item event-list">
+                                                <div class="px-4">
+                                                    <div class="event-date bg-soft-danger text-danger">15 Mar 2023</div>
+                                                    <h5 class="font-size-16">Menu</h5>
+                                                    <p class="text-muted">Startmenu: Auswahl zwischen der Welt des Charkters Arcus und des unendlichen 3Match Spieles </p>
+                                                    <div>
+                                                        <a href="#" class="btn btn-dark btn-sm">Read more</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-inline-item event-list">
+                                                <div class="px-4">
+                                                    <div class="event-date bg-soft-warning text-warning">10 May 2023</div>
+                                                    <h5 class="font-size-16">3D Model Charakter</h5>
+                                                    <p class="text-muted">Modelliere den Hauptcharakter Arcus mit Animationen: Laufen, Springen, Kämpfen.</p>
+                                                    <div>
+                                                        <a href="#" class="btn btn-dark btn-sm">Read more</a>
+                                                    </div>
+                                                </div>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
 
-                                    <li>
-                                        <hr color="black">
-                                        <hr color="black">
-                                        <hr color="black">
-                                        <b>Microsoft Learn Student Ambassador.</b>
-                                        <ul>
-                                            <li>
-                                                August,2020 - Present.
-                                            </li>
-                                            <li>
-                                                Conducted events and workshops on
-                                                different technologies.
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <hr color="black">
-                                        <hr color="black">
-                                        <hr color="black">
-                                        <b>Mentored HackTX.</b>
-                                        <ul>
-                                            <li>
-                                                October,2020.
-                                            </li>
-                                            <li>
-                                                Selected from Microsoft as Student
-                                                ambassador where I mentored students
-                                                in their projects.
-                                            </li>
-                                            <hr color="black">
-                                            <hr color="black">
-                                            <hr color="black">
-                                            <hr color="black">
-                                            <hr color="black">
-                                        </ul>
-                                    </li>
-
-                                </ul>
-
-                            </font>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <!--Achievement(end)-->
+    
 
 
-    <!--Contact(start)-->
-    <table id="contact" border="0" width="100%" 
-        cellpadding="0" cellspacing="0" bgcolor="#c2c0c3">
-        <tr>
-            <td>
-                <table border="0" cellpadding="15" 
-                    cellspacing="0" width="80%" align="center">
-                    <tr>
-                        <td height="180" align="center" 
-                            valign="middle" colspan="2">
-                            <font face="Verdana" size="7" 
-                                color="black">
-                                Contact
-                            </font>
-                            <hr color="black" width="90">
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td align="center" valign="top">
-                            <table border="0" width="50%" cellpadding="15" 
-                                cellspacing="0" align="center" bgcolor="black">
-                                <tr>
-                                    <td width="30%">
-                                        <hr color="black">
-                                        <font face="Verdana" size="4" 
-                                            color="#ffffff">
-                                            Name
-                                        </font>
-                                    </td>
-                                    <td width="70%">
-                                        <font face="Verdana" size="4" 
-                                            color="#ffffff">
-                                            <input type="text" size="40">
-                                        </font>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="30%">
-                                        <font face="Verdana" size="4" 
-                                            color="#ffffff">
-                                            Email
-                                        </font>
-                                    </td>
-                                    <td width="70%">
-                                        <font face="Verdana" size="4" 
-                                            color="#ffffff">
-                                            <input type="email" size="40">
-                                        </font>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="30%">
-                                        <font face="Verdana" size="4" 
-                                            color="#ffffff">
-                                            Number
-                                        </font>
-                                    </td>
-                                    <td width="70%">
-                                        <font face="Verdana" size="4" 
-                                            color="#ffffff">
-                                            <input type="number" size="12">
-                                        </font>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="30%">
-                                        <font face="Verdana" size="4" 
-                                            color="#ffffff">
-                                            Message
-                                        </font>
-                                    </td>
-                                    <td width="70%">
-                                        <font face="Verdana" size="4" 
-                                            color="#ffffff">
-                                            <textarea rows="5" 
-                                                cols="37">
-                                            </textarea>
-                                        </font>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="30%">
-                                        &nbsp;
-                                    </td>
-                                    <td width="70%">
-                                        <button type="Submit">
-                                            <font face="Verdana" 
-                                                size="4" color="black">
-                                                <b>Submit</b>
-                                            </font>
-                                        </button>
-                                        <hr color="black">
-                                        <hr color="black">
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
+    <section class="mt-5">
+        <div class="container w-75 text-center" >
+            <h1 style="font-weight: 900;" >Arcus: realm of forlux</h1>
+            <p class="w-75 mx-auto">The brave Arcus is on his way through the Shadow Realm. On his daring journey, he encounters terrifying creatures. Arcus recognizes his challenges and sees it as his duty to fight the creatures. In various trials, his skill and clout are put to the test.</p>
+        </div>
 
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            &nbsp;
-                            &nbsp;
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <!--Contact(end)-->
+        
+        <div class="container " style="margin-top: 80px">
+            <div class="d-sm-flex align-items-center justify-start">
+                <div class="container template-image-placeholder" style="width: 400px;height: 600px; justify-content: center; align-items: center; display: flex; " >
+                    <!--<h5 style="color: rgb(230, 230, 230);">Comming Soon!</h5>-->
+                    <img src="image 237.png" class="img-responsive rounded-9 w-100 " style="border-radius: 10px 10px 10px 10px" alt="Responsive image">
+                </div>
+                <div class="container w-50">
+                    <h1>3D Modle <span style="color: rgb(4, 158, 135);">Arcus Open World</span></h1>
+                    <p class="lead my-4 ">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem beatae est quibusdam deleniti tempore cum libero optio perferendis nemo consequuntur.
+                    </p>
+                    <!-- <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Lorem ipsum dolor sit.</button> -->
+                </div>
+                
+            </div>
+        </div>
+
+        <!--Newsletter-->
+    <!--<section class=" bg-dark text-light mt-5" style="padding: 80px;">
+        <div class="container">
+            <div class="d-md-flex justify-content-between align-items-center">
+                <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
+
+                <div class="input-group news-input news-width" >
+                    <input type="text" class="form-control" style="border-right: none;" placeholder="Enter Email">
+                    <div class="bg-light p-1" style="border-radius: 0 7px 7px 0px; ">
+                        <button class="btn btn-dark btn-lg " type="button" style="border-radius: 8px;">Send</button>
+                    </div>
+                    
+                  </div>
+            </div>
+        </div>-->
+    <!--</section>
+        
+        <div class="container mt-5">
+            <div class="d-sm-flex align-items-center justify-start">
+                
+                <div class="container w-50">
+                    <h1>The new <span style="color: rgb(85, 44, 182);">Mobile Game</span> </h1>
+                    <p class="lead my-4 ">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem beatae est quibusdam deleniti tempore cum libero optio perferendis nemo consequuntur.
+                    </p>
+                    <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Lorem ipsum dolor sit.</button>
+                </div>
 
 
-    <!--Footer1(start)-->
-    <table id="footer" border="0" width="100%" 
-        cellpadding="0" cellspacing="0" bgcolor="#4CAF50">
-        <tr>
-            <td>
-                <table border="0" cellpadding="15" 
-                    cellspacing="0" width="90%" align="center">
-                    <tr>
-                        <td width="13%" valign="top">
-                            <b>LinkedIn</b>
-                            <a href="#" style="text-decoration:none">
-                                ➲
-                            </a>
-                        </td>
+                <div class="container template-image-placeholder" style="width: 400px;height: 600px; background-color: rgba(250, 250, 250, 0.527); justify-content: center; align-items: center; display: flex;border: dashed 2px rgb(170, 170, 170); border-radius: 10px;" >
+                    <h5 style="color: rgb(230, 230, 230);">Comming Soon!</h5>
+                </div>
+                
+            </div>
+        </div>
+    </section>-->
 
-                        <td>
-                            |
-                        </td>
-
-                        <td width="13%" valign="top">
-                            <b>GitHub</b>
-                            <a href="#" style="text-decoration:none">
-                                ➲ 
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td width="13%" valign="top">
-                            <b>HackerRank</b>
-                            <a href="#" style="text-decoration:none">
-                                ➲
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td width="13%" valign="top">
-                            <b>GeeksforGeeks</b>
-                            <a href="#" style="text-decoration:none">
-                                ➲
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td width="13%" valign="top">
-                            <b>Twitter</b>
-                            <a href="#" style="text-decoration:none">
-                                ➲
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td width="13%" valign="top">
-                            <b>Instagram</b>
-                            <a href="#" style="text-decoration:none">
-                                ➲
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td width="13%" valign="top">
-                            <b>Email</b>
-                            <a href="#" style="text-decoration:none">
-                                ➲
-                            </a>
-                        </td>
-
-                        <td>
-                            |
-                        </td>
-
-                        <td width="13%" valign="top">
-                            <b>Website</b>
-                            <a href="#" style="text-decoration:none">
-                                ➲
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <!--Footer1(end)-->
+    
 
 
-    <!--Footer2(start)-->
-    <table id="footer" border="0" width="100%" 
-        cellpadding="0" cellspacing="0" bgcolor="black">
-        <tr>
-            <td>
-                <table border="0" cellpadding="15" 
-                    cellspacing="0" width="90%" align="center">
-                    <tr>
-                        <td width="80%" valign="top">
-                            <font face="Verdana" 
-                                color="#4CAF50" size="5">
-                                ©Copyright 2050 by nobody. 
-                                All rights reserved.
-                            </font>
-                        </td>
+    <div class="container-fluid mt-5 " style="border-top: solid 1px rgb(228, 228, 228);">
+        <div class="container">
+            <footer class="pt-5 pb-3">
+              <!--<div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Section</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                  </ul>
+                </div>
+          
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Section</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                  </ul>
+                </div>
+          
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Section</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                  </ul>
+                </div>-->
+          
+                <div class="col-md-5 offset-md-1 mb-3">
+                  <form>
+                    <h5>Subscribe to our newsletter</h5>
+                    <p>Monthly digest of what's new and exciting from us.</p>
+                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                      <label for="newsletter1" class="visually-hidden">Email address</label>
+                      <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                      <button class="btn btn-dark" type="button">Subscribe</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+          
+              <div class="d-flex flex-column flex-sm-row justify-content-between py-1 my-2 border-top">
+              <!--<p>© 2023, Inc. All rights reserved.</p>-->
+                <ul class="list-unstyled d-flex">
+                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                </ul>
+              </div>
+            </footer>
+          </div>
+    </div>
+    
 
-                        <td width="10%">
-                            <font face="arial" color="black" size="5">
-                                <a href="#header" style="text-decoration:none">
-                                    <font face="Verdana" color="#4CAF50" size="6">
-                                        <b>TOP&nbsp;</b>
-                                    </font>
-                                </a>
-                            </font>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <!--Footer2(end)-->
 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-
 </html>
