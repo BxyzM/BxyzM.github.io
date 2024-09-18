@@ -2,410 +2,340 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <link rel="import" href="tools-schedule.html">
-    <link rel="icon" href="img/icon.png">
-
-    <title>finalsync</title>
-    <style>
-        
-
-        .tile1{
-            background: rgb(28,28,28);
-            background: linear-gradient(105deg, rgba(28,28,28,1) 0%, rgba(156,36,250,1) 100%);
-            position: absolute;
-            margin-top: 30px;
-            animation-name: example;
-            animation-duration: 1s;
-            z-index: 3;
-        }
-
-    
-        @keyframes example {
-        from {width: 0px;}
-        to {width: 40vw;}
-        }
-        .tile2::before{
-            background-color: purple;
-            position: absolute;
-            margin-top: 0px;
-            z-index: 2;
-            
-        }
-        .tile3::before {
-            background-color: purple;
-            position: absolute;
-            margin-top: 70px;
-            z-index: 1;
-        }
-
-        .tile2 {
-            background: rgb(28,28,28);
-            background: linear-gradient(105deg, rgba(28,28,28,1) 0%, rgba(11,182,255,1) 100%);          
-            animation-name: example1;
-            animation-duration: 1s;
-        }
-
-        .tile3 {
-            background: rgb(28,28,28);
-            background: linear-gradient(105deg, rgba(28,28,28,1) 0%, rgba(36,250,217,1) 100%);
-            animation-name: example2;
-            animation-duration: 1s;
-        }
-
-
-        @keyframes example1 {
-        from {width: 0px;}
-        to {width: 30vw;}
-        }
-
-        @keyframes example2 {
-        from {width: 0px;}
-        to {width: 25vw;}
-        }
-
-
-        </style>
-        <style>
-        body{
-    background:#eee;
-}
-.hori-timeline .events {
-    border-top: 3px solid #e9ecef;
-}
-.hori-timeline .events .event-list {
-    display: block;
-    position: relative;
-    text-align: center;
-    padding-top: 70px;
-    margin-right: 0;
-}
-.hori-timeline .events .event-list::before {
-    content: "";
-    position: absolute; 
-    height: 36px;
-    border-right: 2px dashed #dee2e66c;
-    top: 0; 
-}
-.hori-timeline .events .event-list .event-date {
-    position: absolute;
-    top: 38px;
-    left: 0;
-    right: 0;
-    width: 75px;
-    margin: 0 auto;
-    border-radius: 4px;
-    padding: 2px 4px;
-}
-
-.hori-timeline .events .event-list .event-date:hover {
-    padding: 4px 6px;
-}
-
-
-@media (min-width: 1140px) {
-    .hori-timeline .events .event-list {
-        display: inline-block;
-        width: 24%;
-        padding-top: 45px;
-    }
-    .hori-timeline .events .event-list .event-date {
-        top: -12px;
-    }
-}
-.bg-soft-primary {
-    background-color: rgba(64,144,203,.3)!important;
-}
-.bg-soft-success {
-    background-color: rgba(71,189,154,.3)!important;
-}
-.bg-soft-danger {
-    background-color: rgba(231,76,94,.3)!important;
-}
-.bg-soft-warning {
-    background-color: rgba(249,213,112,.3)!important;
-}
-.card {
-    border: none;
-    margin-bottom: 24px;
-    -webkit-box-shadow: 0 0 13px 0 rgba(236,236,241,.44);
-    box-shadow: 0 0 13px 0 rgba(236,236,241,.44);
-}
-
-.template-image-placeholder:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-@media (min-width: 768px) {
-    .news-width {
-        width: 40vw;
-    }
-}
-
-    </style>
-
-
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>finalsync.</title>
+    <link rel="icon" href="img/iconFS.png" type="image/x-icon">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-        <img class="m-1" src="img/icon.png" alt="navbar icon" style="width: 32px; border-radius: 8px;">
-          <a class="navbar-brand text-white" href="#">finalsync</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Games
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Blast Away</a></li>
-                  <li><a class="dropdown-item" href="#">Puzzle Game</a></li>
-                  <li><a class="dropdown-item" href="#">Arcus</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="tools-schedule.html" target="_parent">Contact</a>
-              </li>
+<body class="bg-white text-black">
+
+    <!-- Navbar -->
+    <nav class="bg-black text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img class="w-19 h-9" src="img/iconFS.png" alt="Logo">
+                <span class="ml-2 font-bold">finalsync.</span>
+            </div>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="#games" class="hover:underline">Games</a></li>
+                <li><a href="#contact" class="hover:underline">Contact</a></li>
+                <!--<li><a href="#" class="bg-white text-black px-4 py-2 rounded hover:bg-gray-200">Get Started</a></li>-->
             </ul>
+        </div>
+    </nav>
+    
+
+    <!-- Hero Section -->
+    <section class="bg-white dark:bg-gray-900">
+        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div class="mr-auto place-self-center lg:col-span-7">
+                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Games for Strategic Minds</h1>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From intricate puzzles to in-depth strategy challenges, players around the world engage with our games to sharpen their skills and master every level.</p>
+                <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                    Get started
+                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="#games" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                    Games Showcase
+                </a> 
+            </div>
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex" style="max-width: 800px;">
+                <img src="img/Group 107.png" alt="mockup">
+            </div>
             
-          </div>
+                     
         </div>
-      </nav>
-      
+    </section>
 
-      <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start ms-auto" style="position: relative;">
-        <div class="tile1 d-none d-xl-block" style=" width: 40%;height: 50px; border-radius:0px 5px 5px  0px;"></div>
-        <div class="tile2 shadow d-none d-xl-block" style="width: 30%; height: 50px; border-radius:0px 5px 5px  0px;"></div>
-        <div class="tile3 d-none d-xl-block" style="width: 25%; height: 80px; border-radius:0px 5px 5px  0px;"></div>
-        <div class="container mt-4">
-            <div class="d-sm-flex align--items-center justify-content-between">
+    <!-- Call to Action (CTA) -->
+    <section class="bg-gray-100 py-8 text-center">
+        <h2 class="text-3xl font-bold">Start your gaming journey with us!</h2>
+    </section>
+    
+    <section class="relative bg-gray-100 py-8 text-center">
+        <!-- Blob Image Containers -->      
+        <div class="absolute rounded-full border-4 border-white" style="width: 12%; height: 25%; top: 10px; left: 5%; background-image: url('img/game02_game.png'); background-size: cover; background-position: center;"></div>
+    
+        <div class="absolute rounded-full border-4 border-white" style="width: 12%; height: 25%; top: -30px; right: 5%; background-image: url('img/game01_game.png'); background-size: cover; background-position: center;"></div>
+    
+        <div class="absolute rounded-full border-4 border-white" style="width: 12%; height: 25%; bottom: 64px; left: 10%; background-image: url('img/game03.png'); background-size: cover; background-position: center;"></div>
+    
+        <div class="absolute rounded-full border-4 border-white" style="width: 12%; height: 25%; bottom: 128px; right: 10%; background-image: url('img/game04.png'); background-size: cover; background-position: center;"></div>
+    
+        <!-- Central Text Content -->
+        <div class="relative bg-white px-6 py-24 sm:py-32 lg:px-0 mx-auto max-w-2xl">
+            <div class="mx-auto max-w-lg">
+                <p class="text-base font-semibold leading-7 text-indigo-600">Conquer Our Challenges!</p>
+                <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Master Your Strategy and Puzzle Skills</h1>
+                <p class="mt-6 text-xl leading-8 text-gray-700">Dive into an immersive world of strategy and puzzle games designed for mobile. Our streamlined development process ensures faster updates and smoother gameplay, giving you the best experience every time. Whether you're solving challenging puzzles or crafting the perfect strategy, we've got you covered.</p>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    
+    
+    <section id="games" class="bg-gray-100 py-8 text-center">
+        <h2 class="text-3xl font-bold">Games Showcase</h2>
+        <!--<button class="mt-4 px-8 py-3 bg-black text-white rounded hover:bg-gray-800">Get Started</button>-->
+    </section>
+    <section class="py-16 bg-gray-100">
+        <!-- First Section: Image Left, Text Right with Two Side-by-Side Images -->
+        <div class="container mx-auto flex flex-col lg:flex-row items-center">
+            <!-- Image container with two side-by-side images -->
+            <div class="lg:w-1/2 flex justify-center relative">
+                <!-- First image -->
+                <img src="img/game01_menu.png" alt="Game Image 1" class="w-48 shadow-lg rounded-md relative z-10">
+                <!-- Second image shifted slightly down -->
+                <img src="img/game01_game.png" alt="Game Image 2" class="w-48 shadow-lg rounded-md relative z-0 ml-4" style="transform: translateY(20px);">
+            </div>
+            <div class="lg:w-1/2 lg:pl-12 mt-8 lg:mt-0 text-center lg:text-left">
+                <h2 class="text-3xl font-bold">Master Your Strategy and Puzzle Skills</h2>
+                <p class="mt-4 text-lg">Dive into an immersive world of strategy and puzzle games designed for mobile. Test your skills and conquer challenging levels.</p>
+                <a  class="inline-block mt-6 bg-gray-700 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gray-900" onclick="showAlert(this)">Play Now</a>
+                <p class="alert-message text-red-500 mt-4 hidden">Currently in development: Coming Soon</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-16 bg-white">
+        <!-- Second Section: Text Left, Image Right with Two Side-by-Side Images -->
+        <div class="container mx-auto flex flex-col lg:flex-row-reverse items-center">
+            <!-- Image container with two side-by-side images -->
+            <div class="lg:w-1/2 flex justify-center relative">
+                <!-- First image -->
+                <img src="img/game02_menu.png" alt="Game Image 3" class="w-48 shadow-lg rounded-md relative z-10">
+                <!-- Second image shifted slightly down -->
+                <img src="img/game02_game.png" alt="Game Image 4" class="w-48 shadow-lg rounded-md relative z-0 ml-4" style="transform: translateY(20px);">
+            </div>
+            <div class="lg:w-1/2 lg:pr-12 mt-8 lg:mt-0 text-center lg:text-left">
+                <h2 class="text-3xl font-bold">Test Your Strategic Thinking</h2>
+                <p class="mt-4 text-lg">Explore different strategies in complex mobile puzzles that will push your limits and help you think outside the box.</p>
+                <a  class="inline-block mt-6 bg-gray-700 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gray-900" onclick="showAlert(this)">Play Now</a>
+                <p class="alert-message text-red-500 mt-4 hidden">Currently in development: Coming Soon</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-16 bg-gray-100">
+        <!-- Third Section: Image Left, Text Right with Two Side-by-Side Images -->
+        <div class="container mx-auto flex flex-col lg:flex-row items-center">
+            <!-- Image container with two side-by-side images -->
+            <div class="lg:w-1/2 flex justify-center relative">
+                <!-- First image -->
+                <img src="img/game03.png" alt="Game Image 5" class="w-48 shadow-lg rounded-md relative z-10">
+                <!-- Second image shifted slightly down -->
+                
+            </div>
+            <div class="lg:w-1/2 lg:pl-12 mt-8 lg:mt-0 text-center lg:text-left">
+                <h2 class="text-3xl font-bold">Build Winning Strategies</h2>
+                <p class="mt-4 text-lg">Create tactics and test them out in dynamic puzzle environments that require a blend of intelligence and skill.</p>
+                <a  class="inline-block mt-6 bg-gray-700 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gray-900" onclick="showAlert(this)">Play Now</a>
+                <p class="alert-message text-red-500 mt-4 hidden">Currently in development: Coming Soon</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-16 bg-white">
+        <!-- Fourth Section: Text Left, Image Right with Two Side-by-Side Images -->
+        <div class="container mx-auto flex flex-col lg:flex-row-reverse items-center">
+            <!-- Image container with two side-by-side images -->
+            <div class="lg:w-1/2 flex justify-center relative">
+                <!-- First image -->
+                <img src="img/game04.png" alt="Game Image 7" class="w-48 shadow-lg rounded-md relative z-10">
+                <!-- Second image shifted slightly down -->
+                
+            </div>
+            <div class="lg:w-1/2 lg:pr-12 mt-8 lg:mt-0 text-center lg:text-left">
+                <h2 class="text-3xl font-bold">Challenge Your Mind</h2>
+                <p class="mt-4 text-lg">Enjoy new and exciting levels that push your strategic and puzzle-solving abilities to the limit, with rewards awaiting the best players.</p>
+                <a  class="inline-block mt-6 bg-gray-700 text-white py-3 px-6 rounded-lg shadow-md hover:bg-gray-900" onclick="showAlert(this)">Play Now</a>
+                <p class="alert-message text-red-500 mt-4 hidden">Currently in development: Coming Soon</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showAlert(button) {
+            var alertMessage = button.nextElementSibling;  // Find the <p> element next to the clicked button
+            alertMessage.classList.remove('hidden');  // Show the alert message
+        }
+        </script>
+    
+
+    <!-- Benefits Section -->
+    <!--<section class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center">
+            <h3 class="text-2xl font-bold">Why Choose Us?</h3>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
-                    <h1>Mobile Game <span style="color: rgba(156,36,250,1);">Portfolio</span> </h1>
-                    <p class="lead my-4 ">
-                        Our task is the creation of games<span style="color: rgba(36,250,217,1); font-weight: 700;">.
-                    </p>
-                    <button class="btn btn-light btn-lg " style="font-weight: 500;"  data-bs-toggle="modal" data-bs-target="#enroll">View Gameplay</button>
+                    <h4 class="text-xl font-semibold">Innovative Gameplay</h4>
+                    <p class="mt-4">We focus on creating unique gaming experiences.</p>
                 </div>
-                <img class="img-fluid w-25 d-none d-sm-block" src="img/undraw_mobile_application_re_13u3.svg" alt="">
+                <div>
+                    <h4 class="text-xl font-semibold">Solo Developer Passion</h4>
+                    <p class="mt-4">Personalized attention and passion in every game.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold">Strong Community</h4>
+                    <p class="mt-4">Join a passionate community of players.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold">Continual Updates</h4>
+                    <p class="mt-4">Our games keep evolving with new content and features.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+        
+
+    <!-- How It Works -->
+    <section class="py-12">
+        <div class="container mx-auto text-center">
+            <h3 class="text-2xl font-bold">How you can help</h3>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold">Play One of Our Games</h4>
+                    <p class="mt-4">Download and start playing for an immersive experience.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold">Test It for a While</h4>
+                    <p class="mt-4">Play it and find bugsb features you would like to have or a different approach.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold">Leave a Review</h4>
+                    <p class="mt-4">Share your feedback and thoughts. Your review will help us refine the game and make it even better.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="container-fluid w-100 mt-1" style=" height: 10px;background-color: rgb(26, 26, 26);"></div>
-
-
-    
-
-    <section class="bg-light text-dark p-5 shadow-sm" style="border-left: solid 5px rgb(39, 39, 39); border-right: solid 5px rgb(39, 39, 39); border-radius: 0 0 5px 5px;">
-        <div class="container" >
-            <div class="d-md-flex justify-content-between align-items-center">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-inline-flex border px-2 pt-1 shadow-sm bg-light mb-5 text-center" style="border-radius: 5px;"><h5 class="card-title">Development Progress</h5></div>
-                                    
-                    
-                                    <div class="hori-timeline" dir="ltr">
-                                        <ul class="list-inline events">
-                                            <li class="list-inline-item event-list" >
-                                                <div class="px-4">
-                                                    <div class="event-date bg-soft-primary text-primary">31 Dez 2022</div>
-                                                    <h5 class="font-size-16">3D Model Menu</h5>
-                                                    <p class="text-muted">Erstelle eine Welt als Level sowie zugleich als Levelauswahl,
-                                                        für den Charakter Arcus.
-                                                    </p>
-                                                    <div>
-                                                        <a href="#" class="btn btn-dark btn-sm">Read more</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item event-list">
-                                                <div class="px-4">
-                                                    <div class="event-date bg-soft-success text-success">28 Feb 2023</div>
-                                                    <h5 class="font-size-16">3Match Game</h5>
-                                                    <p class="text-muted">3Match Mechanik des Spiels für das Erspielen von Waffen/Fähigkeiten.</p>
-                                                    <div>
-                                                        <a href="#" class="btn btn-dark btn-sm">Read more</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item event-list">
-                                                <div class="px-4">
-                                                    <div class="event-date bg-soft-danger text-danger">15 Mar 2023</div>
-                                                    <h5 class="font-size-16">Menu</h5>
-                                                    <p class="text-muted">Startmenu: Auswahl zwischen der Welt des Charkters Arcus und des unendlichen 3Match Spieles </p>
-                                                    <div>
-                                                        <a href="#" class="btn btn-dark btn-sm">Read more</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-inline-item event-list">
-                                                <div class="px-4">
-                                                    <div class="event-date bg-soft-warning text-warning">10 May 2023</div>
-                                                    <h5 class="font-size-16">3D Model Charakter</h5>
-                                                    <p class="text-muted">Modelliere den Hauptcharakter Arcus mit Animationen: Laufen, Springen, Kämpfen.</p>
-                                                    <div>
-                                                        <a href="#" class="btn btn-dark btn-sm">Read more</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end card -->
-                        </div>
-                    </div>
+    <!-- Case Studies / Testimonials -->
+    <!--
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center">
+            <h3 class="text-2xl font-bold">What Our Players Say</h3>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-8 shadow-lg">
+                    <p>"Blast Away is an addictive game! I can't stop playing it. Highly recommend it to anyone looking for a fun challenge."</p>
+                    <p class="mt-4 font-bold">- GamerOne</p>
+                </div>
+                <div class="bg-white p-8 shadow-lg">
+                    <p>"Finalsync has redefined mobile gaming for me. The puzzles are unique and the games keep me entertained for hours."</p>
+                    <p class="mt-4 font-bold">- PlayerTwo</p>
+                </div>
             </div>
         </div>
     </section>
-
+    -->
     
 
-
-
-    <section class="mt-5">
-        <div class="container w-75 text-center" >
-            <h1 style="font-weight: 900;" >Arcus: realm of forlux</h1>
-            <p class="w-75 mx-auto">The brave Arcus is on his way through the Shadow Realm. On his daring journey, he encounters terrifying creatures. Arcus recognizes his challenges and sees it as his duty to fight the creatures. In various trials, his skill and clout are put to the test.</p>
-        </div>
-
-        
-        <div class="container " style="margin-top: 80px">
-            <div class="d-sm-flex align-items-center justify-start">
-                <div class="container template-image-placeholder" style="width: 400px;height: 600px; justify-content: center; align-items: center; display: flex; " >
-                    <!--<h5 style="color: rgb(230, 230, 230);">Comming Soon!</h5>-->
-                    <img src="image 237.png" class="img-responsive rounded-9 w-100 " style="border-radius: 10px 10px 10px 10px" alt="Responsive image">
-                </div>
-                <div class="container w-50">
-                    <h1>3D Modle <span style="color: rgb(4, 158, 135);">Arcus Open World</span></h1>
-                    <p class="lead my-4 ">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem beatae est quibusdam deleniti tempore cum libero optio perferendis nemo consequuntur.
-                    </p>
-                    <!-- <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Lorem ipsum dolor sit.</button> -->
-                </div>
-                
+    <!-- contact -->
+    <section id="contact" class="py-8 text-center">
+        <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+        <p class="text-xl mb-4">Have any questions or feedback? Reach out to us using the form below:</p>
+    
+        <!-- Contact Form -->
+        <form id="contactForm" class="max-w-lg mx-auto">
+            <div class="mb-4">
+                <label for="name" class="block text-left text-lg font-medium text-gray-700">Your Name</label>
+                <input type="text" id="name" name="name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Enter your name" required>
             </div>
-        </div>
-
-        <!--Newsletter-->
-    <!--<section class=" bg-dark text-light mt-5" style="padding: 80px;">
-        <div class="container">
-            <div class="d-md-flex justify-content-between align-items-center">
-                <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
-
-                <div class="input-group news-input news-width" >
-                    <input type="text" class="form-control" style="border-right: none;" placeholder="Enter Email">
-                    <div class="bg-light p-1" style="border-radius: 0 7px 7px 0px; ">
-                        <button class="btn btn-dark btn-lg " type="button" style="border-radius: 8px;">Send</button>
-                    </div>
-                    
-                  </div>
+            
+            <div class="mb-4">
+                <label for="email" class="block text-left text-lg font-medium text-gray-700">Your Email</label>
+                <input type="email" id="email" name="email" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Enter your email" required>
             </div>
-        </div>-->
-    <!--</section>
-        
-        <div class="container mt-5">
-            <div class="d-sm-flex align-items-center justify-start">
-                
-                <div class="container w-50">
-                    <h1>The new <span style="color: rgb(85, 44, 182);">Mobile Game</span> </h1>
-                    <p class="lead my-4 ">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem beatae est quibusdam deleniti tempore cum libero optio perferendis nemo consequuntur.
-                    </p>
-                    <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">Lorem ipsum dolor sit.</button>
-                </div>
-
-
-                <div class="container template-image-placeholder" style="width: 400px;height: 600px; background-color: rgba(250, 250, 250, 0.527); justify-content: center; align-items: center; display: flex;border: dashed 2px rgb(170, 170, 170); border-radius: 10px;" >
-                    <h5 style="color: rgb(230, 230, 230);">Comming Soon!</h5>
-                </div>
-                
+            
+            <div class="mb-4">
+                <label for="message" class="block text-left text-lg font-medium text-gray-700">Your Message</label>
+                <textarea id="message" name="message" rows="5" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Enter your message" required></textarea>
             </div>
-        </div>
-    </section>-->
-
+            
+            <div class="mb-4">
+                <button type="submit" class="w-full bg-indigo-600 text-white p-3 rounded-md hover:bg-indigo-700">Send Message</button>
+            </div>
+        </form>
+    
+        <p id="statusMessage" class="text-lg text-red-600 mt-4"></p>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('service_eh6oyaf'); // Replace 'your-emailjs-user-id' with your actual EmailJS user ID
+        })();
+    
+        // Helper function to check if the user can submit the form
+        function canSubmitForm() {
+            const lastSubmitted = localStorage.getItem('lastSubmitted');
+            const submissionCount = localStorage.getItem('submissionCount') || 0;
+    
+            const currentTime = new Date().getTime();
+            const oneDay = 24 * 60 * 60 * 1000;
+    
+            if (lastSubmitted && currentTime - lastSubmitted < oneDay && submissionCount >= 2) {
+                return false; // Cannot submit, already submitted twice within 24 hours
+            }
+    
+            if (currentTime - lastSubmitted >= oneDay) {
+                // Reset the count if 24 hours have passed
+                localStorage.setItem('submissionCount', 0);
+            }
+    
+            return true;
+        }
+    
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            if (!canSubmitForm()) {
+                document.getElementById('statusMessage').textContent = 'You can only submit the form twice per day.';
+                return;
+            }
+    
+            const templateParams = {
+                name: document.getElementById('name').value,
+                message: document.getElementById('message').value
+            };
+    
+            emailjs.send('service_eh6oyaf', 'template_qyxz61r', templateParams)
+                .then(function(response) {
+                    document.getElementById('statusMessage').textContent = 'Message sent successfully!';
+    
+                    // Update submission count and time
+                    const submissionCount = localStorage.getItem('submissionCount') || 0;
+                    localStorage.setItem('submissionCount', parseInt(submissionCount) + 1);
+                    localStorage.setItem('lastSubmitted', new Date().getTime());
+                }, function(error) {
+                    document.getElementById('statusMessage').textContent = 'Failed to send message, please try again later.';
+                });
+        });
+    </script>
+    
     
 
+   
 
-    <div class="container-fluid mt-5 " style="border-top: solid 1px rgb(228, 228, 228);">
-        <div class="container">
-            <footer class="pt-5 pb-3">
-              <!--<div class="row">
-                <div class="col-6 col-md-2 mb-3">
-                  <h5>Section</h5>
-                  <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                  </ul>
-                </div>
-          
-                <div class="col-6 col-md-2 mb-3">
-                  <h5>Section</h5>
-                  <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                  </ul>
-                </div>
-          
-                <div class="col-6 col-md-2 mb-3">
-                  <h5>Section</h5>
-                  <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-                  </ul>
-                </div>-->
-          
-                <div class="col-md-5 offset-md-1 mb-3">
-                  <form>
-                    <h5>Subscribe to our newsletter</h5>
-                    <p>Monthly digest of what's new and exciting from us.</p>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                      <label for="newsletter1" class="visually-hidden">Email address</label>
-                      <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                      <button class="btn btn-dark" type="button">Subscribe</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-          
-              <div class="d-flex flex-column flex-sm-row justify-content-between py-1 my-2 border-top">
-              <!--<p>© 2023, Inc. All rights reserved.</p>-->
-                <ul class="list-unstyled d-flex">
-                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-                </ul>
-              </div>
-            </footer>
-          </div>
-    </div>
-    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 finalsync.</p>
+            <!--
+            <ul class="flex justify-center space-x-4 mt-4">
+                <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                <li><a href="#" class="hover:underline">Terms of Service</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+            -->
+            
+        </div>
+    </footer>
 
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
